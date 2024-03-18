@@ -13,7 +13,7 @@ package Entities;
 
 import Interface.Identifiable;
 
-import java.util.UUID;
+
 
 public class Customer implements Identifiable{
     private String CID;

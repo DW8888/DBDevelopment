@@ -1,10 +1,7 @@
 package Factory;
 
 import Entities.Customer;
-import java.util.ArrayList;
-import Enums.CountryState;
-import java.util.Random;
-import java.util.UUID;
+
 import Interface.Identifiable;
 
 public class CustomerBuilder {
