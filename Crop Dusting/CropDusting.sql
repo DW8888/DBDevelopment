@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS CropDusting_DB;
+DROP DATABASE IF EXIST City_Tech_CropDusting_DB;
 CREATE DATABASE CropDusting_DB;
 USE CropDusting_DB;
 CREATE TABLE customer(
-    CID VARCHAR(50),
+    CustomerID VARCHAR(50),
     FName VARCHAR(50),
     LName VARCHAR(50),
     CityAddress VARCHAR(50),
@@ -12,13 +12,34 @@ CREATE TABLE customer(
     Constraint PK_customer PRIMARY KEY(CID)
 
 );
-create TABLE employee(
+Create Table Customer_ Account(
+    CustomerID VARCHAR(50),
+    AccountStatus VARCHAR(50),
+    Customer_since DATE,
+    Constraint PK_Customer_Account PRIMARY KEY(CustomerID)
+
+
 
 );
-CREATE TABLE aircraft(
+create TABLE Employee(
+    EmployeeID VARCHAR(50),
+    FName VARCHAR(50),
+    LName VARCHAR(50),
+    Posititon  VARCHAR(50),
+    Department VARCHAR(50),
+    EmploymentSartDate DATE,
+    Constraint PK_employee PRIMARY KEY(EmployeeID)
 
 );
-CREATE TABLE chemical_inventory(
+CREATE TABLE Pay_Record(
+    EmployeeID VARCHAR(50),
+    Salary DECIMAL(10,2),
+    PayDate DATE,
+    Constraint PK_Pay_Record PRIMARY KEY(EmployeeID),
+
+
+);
+CREATE TABLE Aircraft(
 
 );
  CREATE TABLE job_schedule(
