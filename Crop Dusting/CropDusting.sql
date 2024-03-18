@@ -1,4 +1,4 @@
-DROP DATABASE IF EXIST City_Tech_CropDusting_DB;
+DROP DATABASE IF EXISTS City_Tech_CropDusting_DB;
 CREATE DATABASE CropDusting_DB;
 USE CropDusting_DB;
 CREATE TABLE customer(
@@ -40,8 +40,16 @@ CREATE TABLE Pay_Record(
 
 );
 CREATE TABLE Aircraft(
+    AircraftID VARCHAR(50),
+    AircraftType VARCHAR(50),
+    AircraftLocation VARCHAR(50),
+    Constraint PK_Aircraft PRIMARY KEY(AircraftID)
+   
 
 );
- CREATE TABLE job_schedule(
+ CREATE TABLE Aircraft_Availability(
+    AircraftID VARCHAR(50),
+    AircraftStatus VARCHAR(50),
+    Constraint PK_Aircraft_Availability PRIMARY KEY(AircraftID)
 
  );
