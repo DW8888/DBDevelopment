@@ -1,6 +1,6 @@
 package Factory;
 
-import Entities.Customer;
+import CUSTOMER.Customer;
 
 import Interface.Identifiable;
 

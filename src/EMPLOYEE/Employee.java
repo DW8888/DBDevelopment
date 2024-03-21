@@ -1,4 +1,4 @@
-package CUSTOMER;
+package EMPLOYEE;
 
 public class Employee {
     private String EmployeeID;

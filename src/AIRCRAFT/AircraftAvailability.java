@@ -31,7 +31,7 @@ public class AircraftAvailability {
     }
 
     public void setAircraft_Availability(boolean Aircraft_Availability) {
-        Aircraft_Availability = aircraft_Availability;
+        Aircraft_Availability = this.Aircraft_Availability;
     }
 
     public String toString() {

@@ -1,4 +1,4 @@
-package CUSTOMER;
+package EMPLOYEE;
 
 public class PayRecord {
     private String EmployeeID;
