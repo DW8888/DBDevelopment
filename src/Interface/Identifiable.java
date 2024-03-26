@@ -29,7 +29,7 @@ public interface Identifiable {
             "Ortiz", "Gomez", "Mendez", "Perez", "Vasquez", "Garcia", "Martinez", "Robinson", "Clark", "Rodriguez",
             "Lewis", };
     Random R = new Random();
-    String state=null;
+    String state = null;
 
     public static String generateFName() {
         String fName = firstNames[R.nextInt(firstNames.length)];
