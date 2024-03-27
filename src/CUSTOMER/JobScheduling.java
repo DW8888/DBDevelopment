@@ -1,6 +1,6 @@
 package CUSTOMER;
 
-public class JobScheduling {
+public class JobScheduling extends CustomerAccount{
     private String JobID; // C-##-####
     private String CustomerID; // C-##-####
     private String JobLocation;

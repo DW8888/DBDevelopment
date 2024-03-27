@@ -1,6 +1,6 @@
 package CUSTOMER;
 
-public class CustomerAccount {
+public class CustomerAccount extends Customer{
     private String CustomerID; // C-##-####
     private Enum<?> AccountStatus;
     private double AccountBalance;

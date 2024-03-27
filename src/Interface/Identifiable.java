@@ -22,6 +22,7 @@ public interface Identifiable {
             "Adams", "Baker", "Gonzalez", "Sanchez", "Nieves", "Chavez", "Rivera", "Torres", "Ramirez", "Cruz", "Diaz",
             "Ortiz", "Gomez", "Mendez", "Perez", "Vasquez", "Garcia", "Martinez", "Robinson", "Clark", "Rodriguez",
             "Lewis", };
+    public static String[] Locations={"Site 1","Site 2","Site 3","Site 4","Site 5","Site 6"};
     Random R = new Random();
     String state = null;
 
@@ -66,12 +67,12 @@ public static String generateAircraftID() {
 
 }
 
-public static Enum<?> AircraftLocation() {
+public static Enum<?> generateAircraftLocation() {
     Enum<?> A_L = AircraftLocation.values()[R.nextInt(AircraftLocation.values().length)];
     return  A_L;
 
 }
-public static Enum<?> AircrafAvailibility() {
+public static Enum<?> generateAircrafAvailibility() {
     Enum<?> A_A = AircraftAvailibility.values()[R.nextInt(AircraftAvailibility.values().length)];
     return A_A;
 }
@@ -79,5 +80,26 @@ public static Enum<?> AircraftType() {
     Enum<?> A_T = AirCraftType.values()[R.nextInt(AirCraftType.values().length)];
     return A_T;
 }
+public static String generateJobLocation(){
+    return Locations[R.nextInt(Locations.length)];
 
+}
+public static String generateJobID()
+{
+    String JobID = "J-" + R.nextInt(100) + "-" + R.nextInt(10000);
+    return JobID;
 
+}
+public static String generateJobDate() {
+    String JobDate = null;
+    int year = 2024 ;// lets only schedule jobs for the current year (2024
+    int month = 1 + R.nextInt(12);
+    int day = 1 + R.nextInt(2);
+    JobDate = year + "-" + month + "-" + day;
+    return JobDate;
+
+}
+public static double generateJobCost() {
+    double JobCost = 0.0 + R.nextDouble() * 1000.0;
+    return JobCost;
+}
