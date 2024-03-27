@@ -1,23 +1,27 @@
 package Factory;
 
 import CUSTOMER.Customer;
-
+import CUSTOMER.CustomerAccount;
 import Interface.Identifiable;
 
 public class CustomerBuilder {
     public static Customer[] buildCustomers(int n) {
-        Customer[] c = new Customer[n]; 
+        Customer[] c = new Customer[n];
+        CustomerAccount[] CA= new CustomerAccount[n]; 
         for (int i = 0; i < n; i++) {
-            String state = Identifiable.generateState();
+            
             c[i] = new Customer(
-                Identifiable.generateCID(),
+                Identifiable.generateCustomerID(),
                 Identifiable.generateFName(),
-                Identifiable.generateLName(),
-                Identifiable.chooseCity(state),
-                state,
-                Identifiable.generateZipcodeString(state),
-                Identifiable.generatePhoneNumber()
+                Identifiable.generateLName(), 
+                Identifiable.generateCustomerSince()
             );
+                CA[i]= new CustomerAccount(
+                c[i].getCustomerID(),
+                Identifiable.generateAccountStatus(),
+                Identifiable.generateAccountBalance()
+            )
+            ;
         }
         return c;
     }

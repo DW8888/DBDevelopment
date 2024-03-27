@@ -3,12 +3,12 @@ package AIRCRAFT;
 public class Aircraft {
     private String AircraftID;
     private String AircraftType;
-    private String AircraftLocation;
+    private Enum AircraftLocation;
     private int AircraftCount;
     public Aircraft() {
         AircraftCount++;
     }
-    public Aircraft(String AircraftID, String AircraftType, String AircraftLocation) {
+    public Aircraft(String AircraftID, String AircraftType, Enum AircraftLocation) {
         AircraftID = this.AircraftID;
         AircraftType = this.AircraftID;
         AircraftLocation = this.AircraftLocation;
@@ -26,10 +26,10 @@ public class Aircraft {
     public void setAircraftType(String aircraftType) {
         AircraftType = aircraftType;
     }
-    public String getAircraftLocation() {
+    public Enum getAircraftLocation() {
         return AircraftLocation;
     }
-    public void setAircraftLocation(String aircraftLocation) {
+    public void setAircraftLocation(Enum aircraftLocation) {
         AircraftLocation = aircraftLocation;
     }
     public int getAircraftCount() {

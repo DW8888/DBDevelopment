@@ -2,7 +2,7 @@ package AIRCRAFT;
 
 public class AircraftAvailability {
     private String AircraftID;
-    private boolean Aircraft_Availability;
+    private Enum<?> Aircraft_Availability;
 
     public AircraftAvailability() {
     }
@@ -11,10 +11,10 @@ public class AircraftAvailability {
      * @param AircraftID
      * @param aircraft_Availability
      */
-    public AircraftAvailability(String AircraftID, boolean Aircraft_Availability) {
+    public AircraftAvailability(String AircraftID, Enum<?> Aircraft_Availability) {
 
-        AircraftID = this.AircraftID;
-        Aircraft_Availability = this.Aircraft_Availability;
+        this.AircraftID = AircraftID;
+        this.Aircraft_Availability = Aircraft_Availability;
 
     }
 
@@ -26,11 +26,11 @@ public class AircraftAvailability {
         AircraftID = aircraftID;
     }
 
-    public boolean getAircraft_Availability() {
+    public Enum getAircraft_Availability() {
         return Aircraft_Availability;
     }
 
-    public void setAircraft_Availability(boolean Aircraft_Availability) {
+    public void setAircraft_Availability(Enum Aircraft_Availability) {
         Aircraft_Availability = this.Aircraft_Availability;
     }
 

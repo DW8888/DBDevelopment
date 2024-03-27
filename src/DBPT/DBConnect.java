@@ -7,6 +7,8 @@ public class DBConnect {
     private static String jdbc_url = "jdbc:mysql://localhost:3308/";
     private static String username = "root";
     private static String password = "Gavin";
+    @SuppressWarnings("unused")
+   private static String database =" CropDusting_DB";
     
     private static Connection connectToDB(String database) throws ClassNotFoundException, 
             SQLException{
@@ -25,7 +27,7 @@ public class DBConnect {
     public static ResultSet executeResultsQuery(String query,String database) throws ClassNotFoundException, 
             SQLException{
        Connection conn = connectToDB(database);
-       switchToDB(conn,"USE " + database);
+       switchToDB(conn, "USE " + database);
        Statement state = conn.createStatement();
        ResultSet rs = state.executeQuery(query);
        return rs;

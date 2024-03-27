@@ -19,7 +19,10 @@ import Interface.Identifiable;
 
 
 public class Customer implements Identifiable{
-    private String CID;
+    /**
+     * The unique identifier for the customer.
+     */
+    private String CustomerID;
     private String FName;
     private String LName;
     private String CustomerSince; //  2021-01-01 through 2024-01-01
@@ -30,9 +33,9 @@ public class Customer implements Identifiable{
         count++;
     }
 
-public Customer(String CID, String FName, String LName,String CustomerSince
+public Customer(String CustomerID, String FName, String LName,String CustomerSince
  ){
-    this.CID = CID;
+    this.CustomerID = CustomerID;
     this.FName = FName;
     this.LName = LName;
     this.CustomerSince = CustomerSince;
@@ -46,12 +49,12 @@ public int getCount() {
 public void setCount(int count) {
     this.count = count;
 }
-public String getCID() {
-    return CID;
+public String getCustomerID() {
+    return CustomerID;
 }
 
-public void setCID(String cID) {
-    CID = cID;
+public void setCustomerID(String CustomerID) {
+    CustomerID = CustomerID;
 }
 
 public String getFName() {
@@ -84,7 +87,7 @@ public String toString() {
 }
 public void displayMe() {
     System.out.println("***Customer Information***");
-    System.out.println("Customer ID: " + CID);
+    System.out.println("Customer ID: " + CustomerID);
     System.out.println("First Name: " + FName);
     System.out.println("Last Name: " + LName);
     System.out.println("Customer Since: " + CustomerSince);
