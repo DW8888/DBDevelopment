@@ -61,16 +61,16 @@ public String getFName() {
     return FName;
 }
 
-public void setFName(String fName) {
-    FName = fName;
+public void setFName(String FName) {
+    FName = this.FName;
 }
 
 public String getLName() {
     return LName;
 }
 
-public void setLName(String lName) {
-    LName = lName;
+public void setLName(String LName) {
+    LName = this.LName;
 }
 public String getCustomerSince() {
     return CustomerSince;

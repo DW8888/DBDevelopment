@@ -1,6 +1,6 @@
 package EMPLOYEE;
 
-public class Employee {
+public class Employee implements Interface.Identifiable{
     private String EmployeeID;
     private String FName;
     private String LName;

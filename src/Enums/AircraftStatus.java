@@ -1,6 +1,6 @@
 package Enums;
 
-public enum AircraftAvailibility {
+public enum AircraftStatus {
     READY, READYING, UNAVAILABLE;
 
 }

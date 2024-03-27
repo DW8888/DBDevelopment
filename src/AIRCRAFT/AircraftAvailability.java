@@ -1,20 +1,20 @@
 package AIRCRAFT;
 
-public class AircraftAvailability {
+public class AircraftAvailability extends Aircraft implements Interface.Flyable{
     private String AircraftID;
-    private Enum<?> Aircraft_Availability;
+    private Enum<?> AircraftStatus;
 
     public AircraftAvailability() {
     }
 
     /**
      * @param AircraftID
-     * @param aircraft_Availability
+     * @param AircraftStatus
      */
-    public AircraftAvailability(String AircraftID, Enum<?> Aircraft_Availability) {
+    public AircraftAvailability(String AircraftID, Enum<?> AircraftStatus) {
 
         this.AircraftID = AircraftID;
-        this.Aircraft_Availability = Aircraft_Availability;
+        this.AircraftStatus = AircraftStatus;
 
     }
 
@@ -26,19 +26,19 @@ public class AircraftAvailability {
         AircraftID = aircraftID;
     }
 
-    public Enum getAircraft_Availability() {
-        return Aircraft_Availability;
+    public Enum<?> getAircraftStatus() {
+        return AircraftStatus;
     }
 
-    public void setAircraft_Availability(Enum Aircraft_Availability) {
-        Aircraft_Availability = this.Aircraft_Availability;
+    public void setAircraftStatus(Enum<?> AircraftStatus) {
+        AircraftStatus = this.AircraftStatus;
     }
 
     public String toString() {
         super.toString();
         return "AircraftAvailability \nAircraftID="
-                + AircraftID + "\n Aircraft_Availability="
-                + Aircraft_Availability + "]";
+                + AircraftID + "\n AircraftStatus="
+                + AircraftStatus + "]";
     }
 
     public void displayMe() {

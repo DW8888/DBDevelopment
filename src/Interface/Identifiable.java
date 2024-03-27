@@ -61,25 +61,7 @@ public static String generatejobID() {
     String JobID = "J-" + R.nextInt(100) + "-" + R.nextInt(10000);
     return JobID;
 }
-public static String generateAircraftID() {
-    String AircraftID = "A-" + R.nextInt(100) + "-" +('a' + R.nextInt(26)*2)+R.nextInt(10000);
-    return AircraftID;
 
-}
-
-public static Enum<?> generateAircraftLocation() {
-    Enum<?> A_L = AircraftLocation.values()[R.nextInt(AircraftLocation.values().length)];
-    return  A_L;
-
-}
-public static Enum<?> generateAircrafAvailibility() {
-    Enum<?> A_A = AircraftAvailibility.values()[R.nextInt(AircraftAvailibility.values().length)];
-    return A_A;
-}
-public static Enum<?> AircraftType() {
-    Enum<?> A_T = AirCraftType.values()[R.nextInt(AirCraftType.values().length)];
-    return A_T;
-}
 public static String generateJobLocation(){
     return Locations[R.nextInt(Locations.length)];
 
@@ -102,4 +84,5 @@ public static String generateJobDate() {
 public static double generateJobCost() {
     double JobCost = 0.0 + R.nextDouble() * 1000.0;
     return JobCost;
+}
 }
