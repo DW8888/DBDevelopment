@@ -1,15 +1,14 @@
 package CUSTOMER;
 
-public class CustomerAccount extends Customer{
+public class CustomerAccount extends Customer {
     private String CustomerID; // C-##-####
     private Enum<?> AccountStatus;
     private double AccountBalance;
 
     public CustomerAccount() {
-
     }
 
-    public CustomerAccount(String CustomerID, Enum<?> AcountStatus, double AccountBalance) {
+    public CustomerAccount(String CustomerID, Enum<?> AccountStatus, double AccountBalance) {
         this.CustomerID = CustomerID;
         this.AccountStatus = AccountStatus;
         this.AccountBalance = AccountBalance;
@@ -20,7 +19,7 @@ public class CustomerAccount extends Customer{
     }
 
     public void setCustomerID(String CustomerID) {
-        CustomerID = this.CustomerID;
+        this.CustomerID = CustomerID; // Assigning parameter to instance variable
     }
 
     public Enum<?> getAccountStatus() {
@@ -28,7 +27,7 @@ public class CustomerAccount extends Customer{
     }
 
     public void setAccountStatus(Enum<?> AccountStatus) {
-        AccountStatus = this.AccountStatus;
+        this.AccountStatus = AccountStatus; // Assigning parameter to instance variable
     }
 
     public double getAccountBalance() {
@@ -36,7 +35,24 @@ public class CustomerAccount extends Customer{
     }
 
     public void setAccountBalance(double AccountBalance) {
-        AccountBalance = this.AccountBalance;
+        this.AccountBalance = AccountBalance; // Assigning parameter to instance variable
     }
+    public String toString() {
+        return "***CustomerAccount*** \nCustomerID = "
+                + CustomerID + "\n AccountStatus = "
+                + AccountStatus + "\n AccountBalance = "
+                + AccountBalance + "/*******";
+    }
+    public void displayMe() {
+        System.out.println(toString());
+    }   
 
+    public void toSql() {
+        String sql = "INSERT INTO Customer_Account" +
+                     "(customer_id, account_status, account_balance)" +
+                     "VALUES ('" + CustomerID + "', '" +
+                     AccountStatus + "', '" +
+                     AccountBalance + "');";
+        System.out.println(sql);
+    }
 }

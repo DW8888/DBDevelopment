@@ -46,6 +46,19 @@ public class JobScheduling extends CustomerAccount{
         "\n JobLocation=" + JobLocation + 
         "\n JobDate=" + JobDate + 
         "\n JobCost=" + JobCost + "]";
-    }   
+    }
+    public void toSql() {
+        String sql = "INSERT INTO Job_Scheduling" +
+                     "(customer_id, job_location, job_date, job_cost)" +
+                     "VALUES ('" + CustomerID + "', '" +
+                     JobLocation + "', '" +
+                     JobDate + "', '" +
+                     JobCost + "');";
+        System.out.println(sql);
+    }
+          
+    public void displayMe() {
+        System.out.println(toString());
+    }
 
 }

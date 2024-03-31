@@ -1,29 +1,22 @@
 package AIRCRAFT;
-
-public class AircraftAvailability extends Aircraft implements Interface.Flyable{
+public class AircraftAvailability extends Aircraft implements Interface.Flyable {
     private String AircraftID;
     private Enum<?> AircraftStatus;
 
     public AircraftAvailability() {
     }
 
-    /**
-     * @param AircraftID
-     * @param AircraftStatus
-     */
     public AircraftAvailability(String AircraftID, Enum<?> AircraftStatus) {
-
         this.AircraftID = AircraftID;
         this.AircraftStatus = AircraftStatus;
-
     }
 
     public String getAircraftID() {
         return AircraftID;
     }
 
-    public void setAircraftID(String aircraftID) {
-        AircraftID = aircraftID;
+    public void setAircraftID(String AircraftID) {
+        this.AircraftID = AircraftID; // corrected assignment
     }
 
     public Enum<?> getAircraftStatus() {
@@ -31,18 +24,24 @@ public class AircraftAvailability extends Aircraft implements Interface.Flyable{
     }
 
     public void setAircraftStatus(Enum<?> AircraftStatus) {
-        AircraftStatus = this.AircraftStatus;
+        this.AircraftStatus = AircraftStatus; // corrected assignment
     }
 
+    @Override
     public String toString() {
-        super.toString();
-        return "AircraftAvailability \nAircraftID="
-                + AircraftID + "\n AircraftStatus="
-                + AircraftStatus + "]";
+        return "***AircraftAvailability*** \nAircraftID = "
+                + AircraftID + "\n AircraftStatus = "
+                + AircraftStatus + 
+                "/*******";
     }
-
+    public void toSql() {
+        String sql = "INSERT INTO Aircraft_Availability" +
+                     "(aircraft_id, aircraft_status)" +
+                     "VALUES ('" + AircraftID + "', '" +
+                     AircraftStatus + "');";
+        System.out.println(sql);
+    }
     public void displayMe() {
         System.out.println(toString());
     }
-
 }

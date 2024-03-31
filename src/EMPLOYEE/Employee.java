@@ -87,6 +87,14 @@ public class Employee implements Interface.Identifiable{
          "\n EmployeeStartDate=" + EmployeeStartDate + "]";
 
 }
+public void toSql() {
+    String sql = "INSERT INTO Employee" +
+                 "(employee_id, first_name, last_name, position, department, employee_start_date)" +
+                 "VALUES ('" + EmployeeID + "', '" +
+                 FName + "', '" + LName + "', '" + Position + "', '" + Department + "', '" + EmployeeStartDate + "');";
+    System.out.println(sql);
+}
+   
 public void displayMe() {
     System.out.println(toString());
 }

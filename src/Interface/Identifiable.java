@@ -24,7 +24,7 @@ public interface Identifiable {
             "Lewis", };
     public static String[] Locations={"Site 1","Site 2","Site 3","Site 4","Site 5","Site 6"};
     Random R = new Random();
-    String state = null;
+    
 
     public static String generateFName() {
         String fName = firstNames[R.nextInt(firstNames.length)];

@@ -6,7 +6,7 @@ import Enums.AircraftLocation;
 
 public interface Flyable extends Identifiable{
     public static String generateAircraftID() {
-    String AircraftID = "A-" +('a' + R.nextInt(26)*2)+"-"+R.nextInt(10000);
+    String AircraftID = "A-" +( R.nextInt(26))+(+ R.nextInt(26))+"-"+R.nextInt(10000);
     return AircraftID;
 
 }

@@ -56,7 +56,7 @@ public static JobScheduling[] buildJobScheduling(CustomerAccount[] CA) {
                     CA[i].getCustomerID(),
                     "N/A",
                     "N/A",
-                    null
+                    0.0
                 );
     }
     
