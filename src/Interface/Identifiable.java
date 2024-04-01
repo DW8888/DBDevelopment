@@ -2,9 +2,7 @@ package Interface;
 
 
 import java.util.Random;
-import CUSTOMER.*;
 import Enums.*;
-import AIRCRAFT.*;
 
 
 public interface Identifiable {

@@ -1,5 +1,5 @@
 package AIRCRAFT;
-public class AircraftAvailability extends Aircraft implements Interface.Flyable {
+public class AircraftAvailability extends Aircraft {
     private String AircraftID;
     private Enum<?> AircraftStatus;
 

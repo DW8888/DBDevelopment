@@ -8,12 +8,18 @@ public class JobScheduling extends CustomerAccount{
     private Double JobCost;
     public JobScheduling() {
     }
-    public JobScheduling(String CustomerID, String JobLocation, String JobDate, Double JobCost) {
+    public JobScheduling(String JobID,String CustomerID, String JobLocation, String JobDate, Double JobCost) {
         this.JobID = JobID;
         this.CustomerID = CustomerID;
         this.JobLocation = JobLocation;
         this.JobDate = JobDate;
         this.JobCost = JobCost;
+    }
+    public void setJobID(String jobID) {
+        JobID = jobID;
+    }
+    public String getJobID() {
+        return JobID;
     }
     public String getCustomerID() {
         return CustomerID;

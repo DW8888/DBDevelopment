@@ -1,4 +1,3 @@
-import CUSTOMER.CustomerAccount;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -6,7 +5,7 @@ import java.sql.SQLException;
 
 public class DBConnect{
     // JDBC URL, username, and password of MySQL server
-    private static final String URL = "jdbc:mysql://localhost:3306/CropDusting_DB";
+    private static final String URL = "jdbc:mysql://localhost:3308/CropDusting_DB";
     private static final String USER = "root";
     private static final String PASSWORD = "Gavin";
     // JDBC variables for opening and managing connection

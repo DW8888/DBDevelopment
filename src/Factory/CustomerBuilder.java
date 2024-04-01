@@ -39,12 +39,13 @@ public class CustomerBuilder {
                 }
                 return CA;
             }
+@SuppressWarnings("unlikely-arg-type")
 public static JobScheduling[] buildJobScheduling(CustomerAccount[] CA) {
     JobScheduling[] JS = new JobScheduling[CA.length];
     for (int i=0;i<CA.length;i++){
         JS[i]= new JobScheduling();
             if(CA[i].getAccountStatus().equals("ACTIVE")){
-                JS[i]= new JobScheduling(
+                JS[i]= new JobScheduling(Identifiable.generateJobID(),
                     CA[i].getCustomerID(),
                     Identifiable.generateJobLocation(),
                     Identifiable.generateCustomerSince(),
@@ -52,7 +53,7 @@ public static JobScheduling[] buildJobScheduling(CustomerAccount[] CA) {
                 );
             }
             else{
-                JS[i]= new JobScheduling(
+                JS[i]= new JobScheduling("N/A",
                     CA[i].getCustomerID(),
                     "N/A",
                     "N/A",

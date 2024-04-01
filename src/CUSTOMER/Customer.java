@@ -30,7 +30,7 @@ public class Customer implements Identifiable {
     }
 
     public void setCount(int count) {
-        this.count = count;
+        Customer.count = count;
     }
 
     public String getCustomerID() {
