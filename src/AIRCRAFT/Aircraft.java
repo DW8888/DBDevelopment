@@ -57,15 +57,15 @@ public class Aircraft implements Flyable {
         return "****Aircraft**** \nAircraftID = " + AircraftID + 
         "\nAircraftType = " + AircraftType + 
         "\nAircraftLocation = "+ AircraftLocation +
-        "\n***********";
+        "\n";
     }
-    public void toSql() {
+    public String  toSql() {
         String sql = "INSERT INTO Aircraft" +
                      "(aircraft_id, aircraft_type, aircraft_location)" +
                      "VALUES ('" + AircraftID + "', '" +
                      AircraftType + "', '" +
                      AircraftLocation + "');";
-        System.out.println(sql);
+        return sql;
     }
     public void displayMe() {
         System.out.println(toString());

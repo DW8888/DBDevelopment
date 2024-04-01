@@ -4,14 +4,26 @@ import EMPLOYEE.*;
 import Factory.*;
 import CUSTOMER.*;
 import AIRCRAFT.*;
+import DBPT.*;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Main {
 
-    public static void main(String[] args) {
-        // Create Aircraft
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+       
+      
+            // Create Aircraft
+            // connnect to db
+        Connection conn=DBConnect.connectToDB("CropDusting_DB");
+        
+        
         Aircraft[] a = AircraftBuilder.buildAircraft(2);
         for (int i = 0; i < a.length; i++) {
-            System.out.println(a[i].toString()); 
+            System.out.println(a[i].toString());
+            DBConnect.executeinsertQuery(a[i].toSql(), conn);
+            
         }
 
         // Create Aircraft Availabilities

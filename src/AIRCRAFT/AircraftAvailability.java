@@ -32,7 +32,7 @@ public class AircraftAvailability extends Aircraft {
         return "***AircraftAvailability*** \nAircraftID = "
                 + AircraftID + "\n AircraftStatus = "
                 + AircraftStatus + 
-                "/*******";
+                "\n";
     }
     public void toSql() {
         String sql = "INSERT INTO Aircraft_Availability" +

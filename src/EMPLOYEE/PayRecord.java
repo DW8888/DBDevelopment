@@ -39,8 +39,8 @@ public class PayRecord {
     }
     public String toString() {
         super.toString();
-        return "PayRecord \nEmployeeID=" + EmployeeID + 
-        "\n Salary=" + Salary + "\n Paydate=" + Paydate + "]";
+        return "****PayRecord**** \nEmployeeID = " + EmployeeID + 
+        "\nSalary = " + Salary + "\nPaydate = " + Paydate + "\n";
     }
 
     public void toSql() {

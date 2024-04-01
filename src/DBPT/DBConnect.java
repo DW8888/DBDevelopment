@@ -1,48 +1,45 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+package DBPT;
 
-public class DBConnect{
-    // JDBC URL, username, and password of MySQL server
-    private static final String URL = "jdbc:mysql://localhost:3308/CropDusting_DB";
-    private static final String USER = "root";
-    private static final String PASSWORD = "Gavin";
-    // JDBC variables for opening and managing connection
-    private static Connection connection;
-    private static PreparedStatement statement;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-    public static void main(String[] args) {
-        try {
-            // Establish a connection to the database
-            connection = DriverManager.getConnection(URL, USER, PASSWORD);
-
-            // Prepare a SQL statement to insert data into the database
-            String sql = "INSERT INTO Customer_Account (customer_id, account_status, account_balance) VALUES (?, ?, ?)";
-            statement = connection.prepareStatement(sql);
-
-//          
-//            statement.setString(1, .getCustomerID());
-//            statement.setString(2, .getAccountStatus().toString()); // Assuming AccountStatus is an enum
-//            statement.setDouble(3, .getAccountBalance());
-
-            // Execute the SQL statement
-            statement.executeUpdate();
-
-            System.out.println("Data inserted successfully!");
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            // Close connection and statement to release resources
-            try {
-                if (statement != null)
-                    statement.close();
-                if (connection != null)
-                    connection.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+public class DBConnect {
+    
+    private static final String jdbc_url = "jdbc:mysql://localhost:3308/";
+    private static final String username = "root";
+    private static final String password = "Gavin";
+    
+    public static Connection connectToDB(String database) throws ClassNotFoundException, 
+            SQLException{
+       
+       Class.forName("com.mysql.cj.jdbc.Driver");
+       Connection dbConnect = DriverManager.getConnection(jdbc_url, username, password);
+       System.out.println("Connected to the " + database + " database");
+       return dbConnect;
     }
+    
+    public static void switchToDB(Connection conn,String query) throws ClassNotFoundException,
+            SQLException{
+       Statement state = conn.createStatement();
+       state.execute(query);
+    }
+    
+    public static ResultSet executeResultsQuery(String query,String database) throws ClassNotFoundException, 
+            SQLException{
+       Connection conn = connectToDB(database);
+       switchToDB(conn,"USE " + database);
+       Statement state = conn.createStatement();
+       ResultSet rs = state.executeQuery(query);
+       return rs;
+    }
+    public static ResultSet executeinsertQuery(String query,Connection conn)throws ClassNotFoundException, SQLException{
+        
+       
+        Statement  sqlStatement = conn.createStatement();
+       
+        
+        return sqlStatement.executeQuery(query);
+    }
+    
 }

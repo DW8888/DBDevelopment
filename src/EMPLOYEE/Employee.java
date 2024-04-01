@@ -81,10 +81,12 @@ public class Employee implements Interface.Identifiable{
 
     public String toString() {
         super.toString();
-        return "Employee \nEmployeeID=" + EmployeeID +
-        "\n FName=" + FName + "\n LName=" + LName + 
-        "\n Position=" + Position + "\n Department=" + Department +
-         "\n EmployeeStartDate=" + EmployeeStartDate + "]";
+        return "****Employee**** \nEmployeeID = " + EmployeeID +
+        "\nFName = " + FName + 
+                "\nLName = " + LName + 
+        "\nPosition = " + Position + 
+                "\nDepartment = " + Department +
+         "\nEmployeeStartDate = " + EmployeeStartDate + "\n";
 
 }
 public void toSql() {

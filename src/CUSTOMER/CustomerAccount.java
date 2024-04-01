@@ -39,9 +39,9 @@ public class CustomerAccount extends Customer {
     }
     public String toString() {
         return "***CustomerAccount*** \nCustomerID = "
-                + CustomerID + "\n AccountStatus = "
-                + AccountStatus + "\n AccountBalance = "
-                + AccountBalance + "/*******";
+                + CustomerID + "\nAccountStatus = "
+                + AccountStatus + "\nAccountBalance = "
+                + AccountBalance +"\n";
     }
     public void displayMe() {
         System.out.println(toString());

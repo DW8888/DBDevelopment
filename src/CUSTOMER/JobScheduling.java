@@ -48,10 +48,10 @@ public class JobScheduling extends CustomerAccount{
     }
     public String toString() {
         super.toString();
-        return "[JobScheduling \nCustomerID=" + CustomerID + 
-        "\n JobLocation=" + JobLocation + 
-        "\n JobDate=" + JobDate + 
-        "\n JobCost=" + JobCost + "]";
+        return "*****JobScheduling***** \nCustomerID = " + CustomerID + 
+        "\nJobLocation = " + JobLocation + 
+        "\nJobDate = " + JobDate + 
+        "\nJobCost = " + JobCost + "\n";
     }
     public void toSql() {
         String sql = "INSERT INTO Job_Scheduling" +
