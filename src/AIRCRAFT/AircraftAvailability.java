@@ -34,12 +34,12 @@ public class AircraftAvailability extends Aircraft {
                 + AircraftStatus + 
                 "\n";
     }
-    public void toSql() {
+    public String toSql() {
         String sql = "INSERT INTO Aircraft_Availability" +
                      "(aircraft_id, aircraft_status)" +
                      "VALUES ('" + AircraftID + "', '" +
                      AircraftStatus + "');";
-        System.out.println(sql);
+        return sql;
     }
     public void displayMe() {
         System.out.println(toString());

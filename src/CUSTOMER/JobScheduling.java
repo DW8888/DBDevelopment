@@ -53,14 +53,14 @@ public class JobScheduling extends CustomerAccount{
         "\nJobDate = " + JobDate + 
         "\nJobCost = " + JobCost + "\n";
     }
-    public void toSql() {
+    public String toSql() {
         String sql = "INSERT INTO Job_Scheduling" +
                      "(customer_id, job_location, job_date, job_cost)" +
                      "VALUES ('" + CustomerID + "', '" +
                      JobLocation + "', '" +
                      JobDate + "', '" +
                      JobCost + "');";
-        System.out.println(sql);
+        return sql;
     }
           
     public void displayMe() {

@@ -47,12 +47,12 @@ public class CustomerAccount extends Customer {
         System.out.println(toString());
     }   
 
-    public void toSql() {
+    public String toSql() {
         String sql = "INSERT INTO Customer_Account" +
                      "(customer_id, account_status, account_balance)" +
                      "VALUES ('" + CustomerID + "', '" +
                      AccountStatus + "', '" +
                      AccountBalance + "');";
-        System.out.println(sql);
+        return sql;
     }
 }

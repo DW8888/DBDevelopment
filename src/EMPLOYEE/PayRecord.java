@@ -43,13 +43,13 @@ public class PayRecord {
         "\nSalary = " + Salary + "\nPaydate = " + Paydate + "\n";
     }
 
-    public void toSql() {
+    public String toSql() {
         String sql = "INSERT INTO Pay_Record" +
                      "(employee_id, salary, paydate)" +
                      "VALUES ('" + EmployeeID + "', '" +
                      Salary + "', '" +
                      Paydate + "');";
-        System.out.println(sql);
+       return sql;
     }   
     public void displayMe() {
         System.out.println(toString());

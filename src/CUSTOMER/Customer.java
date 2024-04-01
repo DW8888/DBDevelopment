@@ -85,14 +85,14 @@ public class Customer implements Identifiable {
                 "Last Name: " + LName + "\n" +
                 "Customer Since: " + CustomerSince + "\n";
     }
-    public void toSql(){
+    public String toSql(){
     String sql="INSERT INTO customers "+
         "(CustomerID, FName, LName, CustomerSince) VALUES " +
         "('" + CustomerID + "', '" +
          FName + "', '" +
          LName + "', '" +
          CustomerSince + "');";
-    System.out.println(sql);   
+   return sql;   
     }
         
     public void displayMe() {

@@ -6,30 +6,27 @@ import CUSTOMER.*;
 import AIRCRAFT.*;
 import DBPT.*;
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 public class Main {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
-       
-      
-            // Create Aircraft
-            // connnect to db
-        Connection conn=DBConnect.connectToDB("CropDusting_DB");
-        
-        
+
+        // Create Aircraft
+        // connnect to db
+        Connection conn = DBConnect.connectToDB("CropDusting_DB");
+
         Aircraft[] a = AircraftBuilder.buildAircraft(2);
         for (int i = 0; i < a.length; i++) {
             System.out.println(a[i].toString());
             DBConnect.executeinsertQuery(a[i].toSql(), conn);
-            
+
         }
 
         // Create Aircraft Availabilities
         AircraftAvailability[] AA = AircraftBuilder.buildAircraftAvailabilities(a);
         for (int i = 0; i < AA.length; i++) {
-            System.out.println(AA[i].toString()); 
+            System.out.println(AA[i].toString());
         }
 
         // Create Employees and their PayRecords
@@ -45,8 +42,8 @@ public class Main {
         // Create Customers, their CustomerAccounts, and JobScheduling
         Customer[] c = CustomerBuilder.buildCustomers(2);
         for (int k = 0; k < c.length; k++) {
-            System.out.println(c[k].toString()); 
-            CustomerAccount[] CA = CustomerBuilder.buildCustomerAccounts(c); 
+            System.out.println(c[k].toString());
+            CustomerAccount[] CA = CustomerBuilder.buildCustomerAccounts(c);
             for (int l = 0; l < CA.length; l++) {
                 System.out.println(CA[l].toString());
                 JobScheduling[] JS = CustomerBuilder.buildJobScheduling(CA);
