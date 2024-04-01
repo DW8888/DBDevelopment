@@ -1,122 +1,101 @@
 package CUSTOMER;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import Interface.*;
 
-/**
- *
- * @author darwh
- */
-
-
-import Interface.Identifiable;
-
-
-
-public class Customer implements Identifiable{
-    private String CID;
+public class Customer implements Identifiable {
+    private String CustomerID;
     private String FName;
     private String LName;
-    private String cityAddress;
-    private String stateAddress;
-    private String zipCode;
-    private String phoneNumber;
-    private int count;
-    public Customer(){
-        
+    private String CustomerSince;
+
+    private static int count;
+
+    public Customer() {
         count++;
     }
 
-public Customer(String CID, String FName, String LName,
- String cityAddress, String stateAddress, String zipCode, String phoneNumber){
-    this.CID = CID;
-    this.FName = FName;
-    this.LName = LName;
-    this.cityAddress = cityAddress;
-    this.stateAddress = stateAddress;
-    this.zipCode = zipCode;
-    this.phoneNumber = phoneNumber;
-    
-}
-public int getCount() {
-    return count;
-}
+    public Customer(String CustomerID, String FName, String LName, String CustomerSince) {
+        this.CustomerID = CustomerID;
+        this.FName = FName;
+        this.LName = LName;
+        this.CustomerSince = CustomerSince;
+        count++;
+    }
 
-public void setCount(int count) {
-    this.count = count;
-}
-public String getCID() {
-    return CID;
-}
+    public static int getCount() {
+        return count;
+    }
 
-public void setCID(String cID) {
-    CID = cID;
-}
+    public void setCount(int count) {
+        Customer.count = count;
+    }
 
-public String getFName() {
-    return FName;
-}
+    public String getCustomerID() {
+        return CustomerID;
+    }
 
-public void setFName(String fName) {
-    FName = fName;
-}
+    public void setCustomerID(String CustomerID) {
+        this.CustomerID = CustomerID;
+    }
 
-public String getLName() {
-    return LName;
-}
+    public String getFName() {
+        return FName;
+    }
 
-public void setLName(String lName) {
-    LName = lName;
-}
+    public void setFName(String FName) {
+        this.FName = FName;
+    }
 
-public String getCityAddress() {
-    return cityAddress;
-}
+    public String getLName() {
+        return LName;
+    }
 
-public void setCityAddress(String cityAddress) {
-    this.cityAddress = cityAddress;
-}
+    public void setLName(String LName) {
+        this.LName = LName;
+    }
 
-public String getStateAddress() {
-    return stateAddress;
-}
+    public String getCustomerSince() {
+        return CustomerSince;
+    }
 
-public void setStateAddress(String stateAddress) {
-    this.stateAddress = stateAddress;
-}
+    public void setCustomerSince(String CustomerSince) {
+        this.CustomerSince = CustomerSince;
+    }
 
-public String getZipCode() {
-    return zipCode;
-}
+    // Method to insert customer data into the database
+    public void insertIntoDatabase(Connection connection) throws SQLException {
+        String query = "INSERT INTO customers (CustomerID, FName, LName, CustomerSince) VALUES (?, ?, ?, ?)";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, CustomerID);
+            statement.setString(2, FName);
+            statement.setString(3, LName);
+            statement.setString(4, CustomerSince);
+            statement.executeUpdate();
+        }
+    }
 
-public void setZipCode(String zipCode) {
-    this.zipCode = zipCode;
-}
-
-public String getPhoneNumber() {
-    return phoneNumber;
-}
-
-public void setPhoneNumber(String phoneNumber) {
-    this.phoneNumber = phoneNumber;
-}
-@Override
-public String toString() {
-   
-    return super.toString();
-}
-public void displayMe() {
-    System.out.println("***Customer Information***");
-    System.out.println("Customer ID: " + CID);
-    System.out.println("First Name: " + FName);
-    System.out.println("Last Name: " + LName);
-    System.out.println("City: " + cityAddress);
-    System.out.println("State: " + stateAddress);
-    System.out.println("Zip Code: " + zipCode);
-    System.out.println("Phone Number: " + phoneNumber);
-   
-    System.out.println();
-}
+    @Override
+    public String toString() {
+        return "***Customer Information***\n" +
+                "Customer ID: " + CustomerID + "\n" +
+                "First Name: " + FName + "\n" +
+                "Last Name: " + LName + "\n" +
+                "Customer Since: " + CustomerSince + "\n";
+    }
+    public void toSql(){
+    String sql="INSERT INTO customers "+
+        "(CustomerID, FName, LName, CustomerSince) VALUES " +
+        "('" + CustomerID + "', '" +
+         FName + "', '" +
+         LName + "', '" +
+         CustomerSince + "');";
+    System.out.println(sql);   
+    }
+        
+    public void displayMe() {
+        System.out.println(toString());
+    }
 }

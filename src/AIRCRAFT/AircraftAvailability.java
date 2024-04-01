@@ -1,48 +1,47 @@
 package AIRCRAFT;
-
-public class AircraftAvailability {
+public class AircraftAvailability extends Aircraft {
     private String AircraftID;
-    private boolean Aircraft_Availability;
+    private Enum<?> AircraftStatus;
 
     public AircraftAvailability() {
     }
 
-    /**
-     * @param AircraftID
-     * @param aircraft_Availability
-     */
-    public AircraftAvailability(String AircraftID, boolean Aircraft_Availability) {
-
-        AircraftID = this.AircraftID;
-        Aircraft_Availability = this.Aircraft_Availability;
-
+    public AircraftAvailability(String AircraftID, Enum<?> AircraftStatus) {
+        this.AircraftID = AircraftID;
+        this.AircraftStatus = AircraftStatus;
     }
 
     public String getAircraftID() {
         return AircraftID;
     }
 
-    public void setAircraftID(String aircraftID) {
-        AircraftID = aircraftID;
+    public void setAircraftID(String AircraftID) {
+        this.AircraftID = AircraftID; // corrected assignment
     }
 
-    public boolean getAircraft_Availability() {
-        return Aircraft_Availability;
+    public Enum<?> getAircraftStatus() {
+        return AircraftStatus;
     }
 
-    public void setAircraft_Availability(boolean Aircraft_Availability) {
-        Aircraft_Availability = aircraft_Availability;
+    public void setAircraftStatus(Enum<?> AircraftStatus) {
+        this.AircraftStatus = AircraftStatus; // corrected assignment
     }
 
+    @Override
     public String toString() {
-        super.toString();
-        return "AircraftAvailability \nAircraftID="
-                + AircraftID + "\n Aircraft_Availability="
-                + Aircraft_Availability + "]";
+        return "***AircraftAvailability*** \nAircraftID = "
+                + AircraftID + "\n AircraftStatus = "
+                + AircraftStatus + 
+                "/*******";
     }
-
+    public void toSql() {
+        String sql = "INSERT INTO Aircraft_Availability" +
+                     "(aircraft_id, aircraft_status)" +
+                     "VALUES ('" + AircraftID + "', '" +
+                     AircraftStatus + "');";
+        System.out.println(sql);
+    }
     public void displayMe() {
         System.out.println(toString());
     }
-
 }

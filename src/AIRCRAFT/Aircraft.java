@@ -1,51 +1,74 @@
 package AIRCRAFT;
 
-public class Aircraft {
+import Interface.Flyable;
+
+public class Aircraft implements Flyable {
     private String AircraftID;
-    private String AircraftType;
-    private String AircraftLocation;
+    private Enum<?> AircraftType;
+    private Enum<?> AircraftLocation;
     private int AircraftCount;
+
     public Aircraft() {
         AircraftCount++;
     }
-    public Aircraft(String AircraftID, String AircraftType, String AircraftLocation) {
-        AircraftID = this.AircraftID;
-        AircraftType = this.AircraftID;
-        AircraftLocation = this.AircraftLocation;
+
+    public Aircraft(String AircraftID, Enum<?> AircraftType, Enum<?> AircraftLocation) {
+        this.AircraftID = AircraftID; 
+        this.AircraftType = AircraftType;
+        this.AircraftLocation = AircraftLocation;
+        AircraftCount++; // Incrementing static variable
 
     }
+
     public String getAircraftID() {
         return AircraftID;
     }
+
     public void setAircraftID(String aircraftID) {
         AircraftID = aircraftID;
     }
-    public String getAircraftType() {
+
+    public Enum<?> getAircraftType() {
         return AircraftType;
     }
-    public void setAircraftType(String aircraftType) {
+
+    public void setAircraftType(Enum<?> aircraftType) {
         AircraftType = aircraftType;
     }
-    public String getAircraftLocation() {
+
+    public Enum<?> getAircraftLocation() {
         return AircraftLocation;
     }
-    public void setAircraftLocation(String aircraftLocation) {
+
+    public void setAircraftLocation(Enum<?> aircraftLocation) {
         AircraftLocation = aircraftLocation;
     }
-    public int getAircraftCount() {
+
+    public  int getAircraftCount() { // Changed to static
         return AircraftCount;
     }
-    public void setAircraftCount(int aircraftCount) {
+
+    public  void setAircraftCount(int aircraftCount) { // Changed to static
         AircraftCount = aircraftCount;
     }
+
     public String toString() {
         super.toString();
-        return "Aircraft \nAircraftID=" + AircraftID + "\n AircraftType=" + AircraftType + "\n AircraftLocation=" + AircraftLocation + "]";
+        return "****Aircraft**** \nAircraftID = " + AircraftID + 
+        "\nAircraftType = " + AircraftType + 
+        "\nAircraftLocation = "+ AircraftLocation +
+        "\n***********";
+    }
+    public void toSql() {
+        String sql = "INSERT INTO Aircraft" +
+                     "(aircraft_id, aircraft_type, aircraft_location)" +
+                     "VALUES ('" + AircraftID + "', '" +
+                     AircraftType + "', '" +
+                     AircraftLocation + "');";
+        System.out.println(sql);
     }
     public void displayMe() {
         System.out.println(toString());
-    }   
-
-
+    }
 
 }

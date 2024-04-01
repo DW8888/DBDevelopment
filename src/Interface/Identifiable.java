@@ -2,19 +2,11 @@ package Interface;
 
 
 import java.util.Random;
+import Enums.*;
 
-import Enums.CountryState;
 
 public interface Identifiable {
-    public static String[] nyTowns = { "Sleepy Hollow", "Tarrytown", "Ossining", "Briarcliff",
-            "Pleasantville", "Chappaqua", "Armonk", "White Plains", "Yonkers",
-            "Mount Vernon", "New Rochelle", "Scarsdale", "Hartsdale", "Dobbs Ferry", "Irvington" };
-    public static String[] njTowns = { "Hoboken", "Jersey City", "Union City", "Weehawken", "West New York",
-            "Toms River", "Newark", "Paterson", "Elizabeth", "Edison", "Woodbridge", "Lakewood",
-            "Trenton", "Clifton", "Camden" };
-    public static String[] vtTowns = { "Burlington", "Essex", "Rutland", "Colchester", "South Burlington",
-            "Bennington", "Brattleboro", "Hartford", "Milton", "Barre", "Montpelier", "Winooski", "St. Albans",
-            "Newport", "Springfield" };
+  
     public static String[] firstNames = { "Angella", "Bella", "Carmen", "Diana", "Elena", "Fiona",
             "Gina", "Hannah", "Irene", "Julia", "Kathy", "Linda", "Mona", "Nina",
             "Olivia", "Pamela", "Quinn", "Rita", "Samantha", "Tina", "Ursula",
@@ -28,8 +20,9 @@ public interface Identifiable {
             "Adams", "Baker", "Gonzalez", "Sanchez", "Nieves", "Chavez", "Rivera", "Torres", "Ramirez", "Cruz", "Diaz",
             "Ortiz", "Gomez", "Mendez", "Perez", "Vasquez", "Garcia", "Martinez", "Robinson", "Clark", "Rodriguez",
             "Lewis", };
+    public static String[] Locations={"Site 1","Site 2","Site 3","Site 4","Site 5","Site 6"};
     Random R = new Random();
-    String state=null;
+    
 
     public static String generateFName() {
         String fName = firstNames[R.nextInt(firstNames.length)];
@@ -41,76 +34,53 @@ public interface Identifiable {
         return lNameName;
     }
 
-    public static String generateState() {
-        CountryState[] states = CountryState.values();
-        CountryState randomState = states[new Random().nextInt(states.length)];
-        String state = randomState.toString();
-        switch (state) {
-            case "NEW_YORK":
-                state = "New York";
-                break;
-            case "NEW_JERSEY":
-                state = "New Jersey";
-                break;
-            case "VERMONT":
-                state = "Vermont";
-                break;
-            default:
-                state = null;
-                break;
-        }
-        return state;   
+    public static String generateCustomerSince() {
+        String CustomerSince = null;
+        int year = 2021 + R.nextInt(4);
+        int month = 1 + R.nextInt(12);
+        int day = 1 + R.nextInt(2);
+        CustomerSince = year + "-" + month + "-" + day;
+        return CustomerSince;
     }
-
-
-    public static String generateZipcodeString(String state) {
-        String zip = null;
-        if (state== "New York") {
-            zip = "10" + R.nextInt(1000);
-        }
-        if (state=="New Jersey")  {
-            zip = "07" + R.nextInt(1000);
-        }
-        if (state =="Vermont") {
-            zip = "05" + R.nextInt(1000);
-        }
-        return zip;
+    public static String generateCustomerID() {
+        String CustomerID = "C-" + R.nextInt(100) + "-" + R.nextInt(10000);
+        return CustomerID;
     }
-
-   
-    public static String chooseCity(String state) {
-        String city = null;
-        if (state=="New York") {
-         
-            city = nyTowns[R.nextInt(nyTowns.length)];
-        }
-        if (state=="New Jersey"){
-            city = njTowns[R.nextInt(njTowns.length)];
-        }
-        if (state=="Vermont"){
-            city = vtTowns[R.nextInt(vtTowns.length)];
-        }
-        return city;
-    }
-    public static String generatePhoneNumber() {
-        String phoneNumber = "1" +"-"+ R.nextInt(10) + 
-        R.nextInt(10) + R.nextInt(10) + "-" +
-         R.nextInt(10) + R.nextInt(10) + R.nextInt(10) 
-         + "-" + R.nextInt(10) + R.nextInt(10) 
-         + R.nextInt(10) + R.nextInt(10);
-        return phoneNumber;
-    }
-    /**
-     * @return
-     */
-    public static String generateCID() {
-        String CID = null;
-        CID = generateFName().substring(0, 1) +
-         generateLName().substring(0, 1) + 
-         R.nextInt(100000);
-        return CID;
-    }
-
+    
+public static AccountStatus generateAccountStatus() {
+    AccountStatus A_S = AccountStatus.values()[R.nextInt(AccountStatus.values().length)];
+    return A_S;
+}
+public static double generateAccountBalance() {
+    double AccountBalance = 0.0 + R.nextDouble() * 1000.0;
+    return AccountBalance;
+}
+public static String generatejobID() {
+    String JobID = "J-" + R.nextInt(100) + "-" + R.nextInt(10000);
+    return JobID;
 }
 
+public static String generateJobLocation(){
+    return Locations[R.nextInt(Locations.length)];
 
+}
+public static String generateJobID()
+{
+    String JobID = "J-" + R.nextInt(100) + "-" + R.nextInt(10000);
+    return JobID;
+
+}
+public static String generateJobDate() {
+    String JobDate = null;
+    int year = 2024 ;// lets only schedule jobs for the current year (2024
+    int month = 1 + R.nextInt(12);
+    int day = 1 + R.nextInt(2);
+    JobDate = year + "-" + month + "-" + day;
+    return JobDate;
+
+}
+public static double generateJobCost() {
+    double JobCost = 0.0 + R.nextDouble() * 1000.0;
+    return JobCost;
+}
+}

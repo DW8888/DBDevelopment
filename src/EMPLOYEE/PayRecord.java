@@ -1,4 +1,4 @@
-package CUSTOMER;
+package EMPLOYEE;
 
 public class PayRecord {
     private String EmployeeID;
@@ -42,6 +42,15 @@ public class PayRecord {
         return "PayRecord \nEmployeeID=" + EmployeeID + 
         "\n Salary=" + Salary + "\n Paydate=" + Paydate + "]";
     }
+
+    public void toSql() {
+        String sql = "INSERT INTO Pay_Record" +
+                     "(employee_id, salary, paydate)" +
+                     "VALUES ('" + EmployeeID + "', '" +
+                     Salary + "', '" +
+                     Paydate + "');";
+        System.out.println(sql);
+    }   
     public void displayMe() {
         System.out.println(toString());
     }
