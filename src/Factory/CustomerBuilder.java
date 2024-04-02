@@ -5,65 +5,74 @@ import CUSTOMER.CustomerAccount;
 import CUSTOMER.JobScheduling;
 import Interface.Identifiable;
 
+/**
+ * The CustomerBuilder class is responsible for building customer-related objects.
+ */
 public class CustomerBuilder {
-    Customer[]c; CustomerAccount[]CA; JobScheduling[]JS;
+    Customer[] c; 
+    CustomerAccount[] CA; 
+    JobScheduling[] JS;
+    
+    /**
+     * Builds an array of Customer objects.
+     * 
+     * @param n The number of customers to build.
+     * @return An array of Customer objects.
+     */
     public static Customer[] buildCustomers(int n) {
+        final Customer[] c = new Customer[n];
         
-       final Customer[] c = new Customer[n];
-       
-        
-       
-        
-        for ( int i = 0; i < n; i++) {
-       
-        
-            
+        for (int i = 0; i < n; i++) {
             c[i] = new Customer(
                 Identifiable.generateCustomerID(),
                 Identifiable.generateFName(),
                 Identifiable.generateLName(), 
                 Identifiable.generateCustomerSince()
             );
-            
         }
+        
         return c;
-      }
-            public static CustomerAccount[] buildCustomerAccounts(Customer[] c) {   
-                CustomerAccount[] CA = new CustomerAccount[c.length];
-                // Declare and initialize the 'c' array variable
-                for (int i=0;i<c.length;i++){ 
-                    CA[i]= new CustomerAccount(
-                        c[i].getCustomerID(),
-                        Identifiable.generateAccountStatus(),
-                        Identifiable.generateAccountBalance()
-                    );
-                }
-                return CA;
-            }
-public static JobScheduling[] buildJobScheduling(Customer[] c) {
-    JobScheduling[] JS = new JobScheduling[c.length];
-    for (int i=0;i<c.length;i++){
-        JS[i]= new JobScheduling();
-           
-                JS[i]= new JobScheduling(Identifiable.generateJobID(),
-                    c[i].getCustomerID(),
-                    Identifiable.generateJobLocation(),
-                    Identifiable.generateCustomerSince(),
-                    Identifiable.generateJobCost());
-                
-            }
-            // else{
-            //     Random r = new Random();
-            //     JS[i]= new JobScheduling("J-000-"+ (r.nextInt(10000)),
-            //         CA[i].getCustomerID(),
-            //         "N/A",
-            //         "2021/01/01",
-            //         0.0
-            //     );
+    }
     
+    /**
+     * Builds an array of CustomerAccount objects based on the given array of Customer objects.
+     * 
+     * @param c An array of Customer objects.
+     * @return An array of CustomerAccount objects.
+     */
+    public static CustomerAccount[] buildCustomerAccounts(Customer[] c) {   
+        CustomerAccount[] CA = new CustomerAccount[c.length];
+        
+        for (int i = 0; i < c.length; i++) { 
+            CA[i] = new CustomerAccount(
+                c[i].getCustomerID(),
+                Identifiable.generateAccountStatus(),
+                Identifiable.generateAccountBalance()
+            );
+        }
+        
+        return CA;
+    }
     
-
-return JS;
-}
-
+    /**
+     * Builds an array of JobScheduling objects based on the given array of Customer objects.
+     * 
+     * @param c An array of Customer objects.
+     * @return An array of JobScheduling objects.
+     */
+    public static JobScheduling[] buildJobScheduling(Customer[] c) {
+        JobScheduling[] JS = new JobScheduling[c.length];
+        
+        for (int i = 0; i < c.length; i++) {
+            JS[i] = new JobScheduling(
+                Identifiable.generateJobID(),
+                c[i].getCustomerID(),
+                Identifiable.generateJobLocation(),
+                Identifiable.generateCustomerSince(),
+                Identifiable.generateJobCost()
+            );
+        }
+        
+        return JS;
+    }
 }

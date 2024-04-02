@@ -7,9 +7,22 @@ import AIRCRAFT.*;
 import DBPT.*;
 import java.sql.*;
 
-
+/**
+ * The Main class is the entry point of the program.
+ * It creates aircraft, aircraft availabilities, employees, pay records, customers, customer accounts, and job scheduling.
+ * It also connects to a database and executes SQL statements to insert data.
+ */
 public class Main {
 
+    /**
+     * The main method is the entry point of the program.
+     * It creates aircraft, aircraft availabilities, employees, pay records, customers, customer accounts, and job scheduling.
+     * It also connects to a database and executes SQL statements to insert data.
+     *
+     * @param args The command line arguments.
+     * @throws ClassNotFoundException If the database driver class is not found.
+     * @throws SQLException If there is an error executing SQL statements.
+     */
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         
         // Create Aircraft
