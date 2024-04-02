@@ -36,7 +36,7 @@ public class AircraftAvailability extends Aircraft {
     }
     public String toSql() {
         String sql = "INSERT INTO Aircraft_Availability" +
-                     "(aircraft_id, aircraft_status)" +
+                     "(aircraftid, aircraftstatus)" +
                      "VALUES ('" + AircraftID + "', '" +
                      AircraftStatus + "');";
         return sql;

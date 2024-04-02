@@ -61,7 +61,7 @@ public class Aircraft implements Flyable {
     }
     public String  toSql() {
         String sql = "INSERT INTO Aircraft" +
-                     "(aircraft_id, aircraft_type, aircraft_location)" +
+                     "(aircraftid, aircrafttype, aircraftlocation)" +
                      "VALUES ('" + AircraftID + "', '" +
                      AircraftType + "', '" +
                      AircraftLocation + "');";

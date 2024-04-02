@@ -86,7 +86,7 @@ public class Customer implements Identifiable {
                 "Customer Since: " + CustomerSince + "\n";
     }
     public String toSql(){
-    String sql="INSERT INTO customers "+
+    String sql="INSERT INTO customer "+
         "(CustomerID, FName, LName, CustomerSince) VALUES " +
         "('" + CustomerID + "', '" +
          FName + "', '" +

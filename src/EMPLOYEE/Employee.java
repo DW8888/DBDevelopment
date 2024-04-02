@@ -91,7 +91,7 @@ public class Employee implements Interface.Identifiable{
 }
 public String toSql() {
     String sql = "INSERT INTO Employee" +
-                 "(employee_id, first_name, last_name, position, department, employee_start_date)" +
+                 "(employeeid, fname, lname, position, department, employmentstartdate)" +
                  "VALUES ('" + EmployeeID + "', '" +
                  FName + "', '" + LName + "', '" + Position + "', '" + Department + "', '" + EmployeeStartDate + "');";
     return sql;

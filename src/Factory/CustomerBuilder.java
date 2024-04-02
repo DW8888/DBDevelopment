@@ -10,6 +10,7 @@ public class CustomerBuilder {
     public static Customer[] buildCustomers(int n) {
         
        final Customer[] c = new Customer[n];
+       
         
        
         
@@ -39,29 +40,29 @@ public class CustomerBuilder {
                 }
                 return CA;
             }
-@SuppressWarnings("unlikely-arg-type")
-public static JobScheduling[] buildJobScheduling(CustomerAccount[] CA) {
-    JobScheduling[] JS = new JobScheduling[CA.length];
-    for (int i=0;i<CA.length;i++){
+public static JobScheduling[] buildJobScheduling(Customer[] c) {
+    JobScheduling[] JS = new JobScheduling[c.length];
+    for (int i=0;i<c.length;i++){
         JS[i]= new JobScheduling();
-            if(CA[i].getAccountStatus().equals("ACTIVE")){
+           
                 JS[i]= new JobScheduling(Identifiable.generateJobID(),
-                    CA[i].getCustomerID(),
+                    c[i].getCustomerID(),
                     Identifiable.generateJobLocation(),
                     Identifiable.generateCustomerSince(),
-                    Identifiable.generateJobCost()
-                );
+                    Identifiable.generateJobCost());
+                
             }
-            else{
-                JS[i]= new JobScheduling("N/A",
-                    CA[i].getCustomerID(),
-                    "N/A",
-                    "N/A",
-                    0.0
-                );
-    }
+            // else{
+            //     Random r = new Random();
+            //     JS[i]= new JobScheduling("J-000-"+ (r.nextInt(10000)),
+            //         CA[i].getCustomerID(),
+            //         "N/A",
+            //         "2021/01/01",
+            //         0.0
+            //     );
     
-}
+    
+
 return JS;
 }
 

@@ -32,13 +32,29 @@ public class DBConnect {
        ResultSet rs = state.executeQuery(query);
        return rs;
     }
-    public static ResultSet executeinsertQuery(String query,Connection conn)throws ClassNotFoundException, SQLException{
+    /**
+     * @param query
+     * @param conn
+     * @throws ClassNotFoundException
+     * @throws SQLException
+     */
+    public static void executeQuery(String query,Connection conn)throws ClassNotFoundException, SQLException{
         
        
-        Statement  sqlStatement = conn.createStatement();
-       
-        
-        return sqlStatement.executeQuery(query);
-    }
+   
+      
     
+    }
+
+    public static void prepareStatement(String sql, String database) throws SQLException, ClassNotFoundException{
+        Connection conn = connectToDB(database);
+        switchToDB(conn,"USE " + database);
+        PreparedStatement  ps = conn.prepareStatement(sql);
+        ps.executeUpdate();
+        System.out.println("Statement executed");
+       
+   
+        
+       
+    }
 }

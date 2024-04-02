@@ -55,8 +55,10 @@ public class JobScheduling extends CustomerAccount{
     }
     public String toSql() {
         String sql = "INSERT INTO Job_Scheduling" +
-                     "(customer_id, job_location, job_date, job_cost)" +
-                     "VALUES ('" + CustomerID + "', '" +
+                     "(JobID, customerid, joblocation, jobdate, jobcost)" +
+                     "VALUES ('"+
+                     JobID+ "','" + 
+                     CustomerID + "', '" +
                      JobLocation + "', '" +
                      JobDate + "', '" +
                      JobCost + "');";

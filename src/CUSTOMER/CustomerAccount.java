@@ -49,7 +49,7 @@ public class CustomerAccount extends Customer {
 
     public String toSql() {
         String sql = "INSERT INTO Customer_Account" +
-                     "(customer_id, account_status, account_balance)" +
+                     "(customerid, accountstatus, accountbalance)" +
                      "VALUES ('" + CustomerID + "', '" +
                      AccountStatus + "', '" +
                      AccountBalance + "');";

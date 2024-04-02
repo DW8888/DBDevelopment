@@ -9,7 +9,7 @@ USE CropDusting_DB;
 
 -- Create the Customer table
 CREATE TABLE Customer(
-    CustomerID INT AUTO_INCREMENT,
+    CustomerID VARCHAR(50),
     FName VARCHAR(50),
     LName VARCHAR(50),
     CustomerSince DATE,
@@ -18,7 +18,7 @@ CREATE TABLE Customer(
 
 -- Create the Customer_Account table
 CREATE TABLE Customer_Account(
-    CustomerID INT,
+    CustomerID VARCHAR(50),
     AccountStatus VARCHAR(50),
     AccountBalance DECIMAL(10, 2),
     CONSTRAINT PK_Customer_Account PRIMARY KEY(CustomerID),
@@ -63,8 +63,8 @@ CREATE TABLE Aircraft(
 
 -- Create the Job_Scheduling table
 CREATE TABLE Job_Scheduling(
-    JobID INT AUTO_INCREMENT,
-    CustomerID INT,
+    JobID VARCHAR(50),
+    CustomerID VARCHAR(50),
     JobLocation VARCHAR(50),
     JobDate DATE,
     JobCost DECIMAL(10, 2),

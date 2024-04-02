@@ -45,7 +45,7 @@ public class PayRecord {
 
     public String toSql() {
         String sql = "INSERT INTO Pay_Record" +
-                     "(employee_id, salary, paydate)" +
+                     "(employeeid, salary, paydate)" +
                      "VALUES ('" + EmployeeID + "', '" +
                      Salary + "', '" +
                      Paydate + "');";
